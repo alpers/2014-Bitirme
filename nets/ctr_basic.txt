@@ -1,12 +1,12 @@
 layers {
 	name: "ctr_input"
-	type: DATA
+	type: IMAGE_DATA
 	data_param {
-		source: "dataset/ctq/labels.txt"
+		source: "ctq/dataset/train/labels.txt"
 		batch_size: 64
 	}
-	top: data
-	top: label
+	top: "data"
+	top: "label"
 }
 
 layers {
