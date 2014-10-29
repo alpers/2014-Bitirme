@@ -3,7 +3,7 @@ layers {
 	type: IMAGE_DATA
 	image_data_param {
 		source: "ctq/dataset/train/labels.txt"
-		batch_size: 64
+		batch_size: 50
 	}
 	top: "data"
 	top: "label"
@@ -29,12 +29,7 @@ layers {
 
 layers {
 	name: "loss"
-	type: SOFTMAX_LOSS
+	type: SOFTMAX_LOSS 
 	bottom: "out_ip1"
 	bottom: "label"
-	top: "loss"
 }
-
-
-
-
