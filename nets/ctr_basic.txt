@@ -1,0 +1,40 @@
+layers {
+	name: "ctr_input"
+	type: DATA
+	data_param {
+		source: "dataset/ctq/labels.txt"
+		batch_size: 64
+	}
+	top: data
+	top: label
+}
+
+layers {
+	name: "ip1"
+	type: INNER_PRODUCT 
+	
+	inner_product_param {
+		num_output: 3
+		weight_filler {
+			type: "xavier"
+		}
+		bias_filler {
+			type: "constant"
+		}
+	}
+	
+	bottom: "data"
+	top: "out_ip1"
+}
+
+layers {
+	name: "loss"
+	type: SOFTMAX_LOSS
+	bottom: "out_ip1"
+	bottom: "label"
+	top: "loss"
+}
+
+
+
+
