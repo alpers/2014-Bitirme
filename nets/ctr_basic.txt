@@ -1,7 +1,7 @@
 layers {
 	name: "ctr_input"
 	type: IMAGE_DATA
-	data_param {
+	image_data_param {
 		source: "ctq/dataset/train/labels.txt"
 		batch_size: 64
 	}
