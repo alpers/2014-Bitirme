@@ -7,15 +7,15 @@ def create_image(path, pxcount):
     gorselin random piksel degerlerini degistirerek yeni gorsel olusturur
     pxcount: kac kez random piksel degistirme islemi yapiliyor
     """
-    img = Image.open(path, 'r')
+    img = Image.open(path, 'r').convert('L')
     pixels = img.load()
     for i in range(pxcount):
-        x = randint(img.size[0]-1)
-        y = randint(img.size[0]-1)
-        if pixels[x, y] == (0,0,0):
-            pixels[x, y] = 255,255,255
+        x = randint(0, img.size[0]-1)
+        y = randint(0, img.size[0]-1)
+        if pixels[x, y] == 0:
+            pixels[x, y] = 255
         else:
-            pixels[x, y] = 0,0,0
+            pixels[x, y] = 0
     return img
 
 def save_image(start, stop, imgcount, label):
@@ -48,4 +48,6 @@ def select_file(imglabel):
 
 
 #labels: circle=0, tri=1, quad=2
-save_image(100, 300, 2000, 0)
+save_image(100, 300, 500, 0)
+save_image(100, 300, 500, 1)
+save_image(100, 300, 500, 2)
