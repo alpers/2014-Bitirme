@@ -28,7 +28,7 @@ def save_image(start, stop, imgcount, label):
         pxcnt = randint(start, stop)
         imgcurrent = create_image(imgfile, pxcnt)
         filename = "img_" + str(label) + "_" + str(p) + "_" + str(pxcnt) + ".png"
-        text += filename + "\n"
+        text += filename + " " + str(label) + "\n"
         imgcurrent.save(filename)
     text_file = open(imgfile + "_label.txt", "w")
     text_file.write(text)
