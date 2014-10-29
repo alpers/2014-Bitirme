@@ -14,13 +14,13 @@ def setimage(path, pxcount):
             pixels[x, y] = 0,0,0
     return img
 
-def saveimage(start, stop, imgcount):
+def saveimage(start, stop, imgcount, label):
     text = ""
     for p in range(0,imgcount):
         pxcnt = randint(start, stop)
         imgcurrent = setimage(imgfile, pxcnt)
         filename = "img_" + str(pxcnt) + "_" + str(randint(0, 1000)) + ".png"
-        text += "/images/" + imgfile + "/" + filename + ", 0" + "\n"
+        text += "/images/" + imgfile + "/" + filename + ", " + str(label) + "\n"
         imgcurrent.save(filename)
 
     text_file = open(imgfile + "_label.txt", "w")
@@ -28,6 +28,7 @@ def saveimage(start, stop, imgcount):
     text_file.close()
 
 imgfile = "circle.png"
+#labels: circle=0, tri=1, quad=2
 
-saveimage(100, 200, 1000)
-saveimage(200, 300, 1000)
+saveimage(100, 200, 1000, 0)
+saveimage(200, 300, 1000, 0)
