@@ -27,10 +27,10 @@ def save_image(start, stop, imgcount, label):
     for p in range(imgcount):
         pxcnt = randint(start, stop)
         imgcurrent = create_image(imgfile, pxcnt)
-        filename = "img_" + str(label) + "_" + str(p) + "_" + str(pxcnt) + ".png"
+        filename = "img_test_" + str(label) + "_" + str(p) + "_" + str(pxcnt) + ".png"
         text += filename + " " + str(label) + "\n"
         imgcurrent.save(filename)
-    text_file = open(imgfile + "_label.txt", "w")
+    text_file = open(imgfile + "_test_label.txt", "w")
     text_file.write(text)
     text_file.close()
 
@@ -48,6 +48,7 @@ def select_file(imglabel):
 
 
 #labels: circle=0, tri=1, quad=2
+#train:2000, test:500 images
 save_image(100, 300, 500, 0)
 save_image(100, 300, 500, 1)
 save_image(100, 300, 500, 2)
