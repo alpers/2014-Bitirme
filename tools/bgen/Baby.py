@@ -16,14 +16,14 @@ class Baby:
 
     def create_image(self):
         """
-        rastgele farklı yerlerde ve
-        farklı derecelerde dondurulmus gorseller olusturur
+        rastgele farkli yerlerde ve
+        farkli derecelerde dondurulmus gorseller olusturur
         """
         backgroundImg = Image.open(self.background)
         maskImg = Image.open(self.mask)
         sizeX, sizeY = backgroundImg.size
-        coordinateX = randint(0, sizeX)
-        coordinateY = randint(0, sizeY)
+        coordinateX = randint(30, sizeX-30)
+        coordinateY = randint(30, sizeY-30)
         self.x = randint(0, sizeX)
         self.y = randint(0, sizeY)
         self.rotate = randint(0,359)
@@ -54,4 +54,4 @@ class Baby:
         for i in range(1,22):
             bg = "pd" + str(i) + "c.png"
             ms = "pd" + str(i) + "b.png"
-            self.save_image(bg, ms, 30)
+            self.save_image(bg, ms, 5)
